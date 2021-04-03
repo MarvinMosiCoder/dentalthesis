@@ -18,8 +18,8 @@
         while ($row =mysqli_fetch_array($query_run)) { ?>
 
 
-<main role="main" class="col-md-12">
-        <h1 class="h2">Dashboard</h1>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+        <h1 class="h2">Schedule</h1>
       <div class="container">
 
 <div class="row">

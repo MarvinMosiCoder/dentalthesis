@@ -2,13 +2,14 @@
 $conn = mysqli_connect('localhost' , 'root' , '', 'dms');
 if(isset($_POST['register'])){
   $client_id = $_POST['client_id'];
+  $client_name = $_POST['client_name'];
   $treatment_type = $_POST['treatment_type'];
   $date_of_appointment = date('Y-m-d', strtotime($_POST['date_of_appointment']));
   $time_of_appointment = $_POST['time_of_appointment'];
   
 
-  $query = "INSERT INTO appointment(client_id, treatment_type, date_of_appointment, time_of_appointment) 
-  VALUES('$client_id','$treatment_type', '$date_of_appointment', '$time_of_appointment')";
+  $query = "INSERT INTO appointment(client_id,client_name, treatment_type, date_of_appointment, time_of_appointment,users_status) 
+  VALUES('$client_id','$client_name','$treatment_type', '$date_of_appointment', '$time_of_appointment',1)";
 
   $result = mysqli_query($conn,$query);
 

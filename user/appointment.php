@@ -26,6 +26,7 @@
               <div class="row d-flex align-items-center mt-4">
                 
                   <input type="hidden" name="client_id" value = "<?php echo $login_user_id;?>" class="form-control" placeholder="Name">
+                  <input type="hidden" name="client_name" value = "<?php echo $client_name;?>" class="form-control" placeholder="Name">
                
                 <div class="col">
                   <input type="text" name="treatment_type" class="form-control" placeholder="type of treatment">

@@ -12,10 +12,22 @@
 
     <!-- bootstrap 4 offline -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS-->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
+    <script src="../bootstrap-4.5.3/jquery/jquery.min.js"></script> 
     <script src="../bootstrap-4.5.3/popper.js/dist/popper.min.js"></script> 
     <script src="../bootstrap-4.5.3/dist/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
     <script src="../css/dashboard.js"></script>
+
+    <!--jsdataTables-->
+    <script src="../bootstrap-4.5.3/DataTables/js/jquery.dataTables.min.js"></script>
+    <!-- <script src="../bootstrap-4.5.3/DataTables/js/dataTables.bootstrap4.min.js"></script> -->
+     <script src="assets/dataTables/Buttons/js/dataTables.buttons.min.js"></script>
+    <script src="assets/dataTables/Buttons/js/buttons.html5.min.js"></script>
+    <script src="assets/dataTables/Buttons/js/buttons.flash.min.js"></script>
+    <script src="assets/dataTables/Buttons/js/buttons.print.min.js"></script>
+    <script src="assets/dataTables/pdfmake/pdfmake.min.js"></script>
+    <script src="assets/dataTables/pdfmake/vfs_fonts.js"></script>
+    <script src="assets/dataTables/JSZip/jszip.min.js"></script> 
 </body> 
 </html>

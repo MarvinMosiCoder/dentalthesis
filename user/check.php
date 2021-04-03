@@ -9,6 +9,7 @@ $row=mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
 
 $login_user=$row['username'];
 $login_user_id=$row['id'];
+$client_name=$row['fname']. ' ' .$row['mname']. ' ' .$row['lname'];
 
 if(!isset($user_check))
 {

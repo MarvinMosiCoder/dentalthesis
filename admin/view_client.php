@@ -8,13 +8,11 @@
                $row = mysqli_fetch_array($query);     
                ?>
                
-    <main role="main" class="col-md-12">
-     <br>
-     <br>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
       <div class="container">
         <div class="card">
         <h2>Registered Client</h2>
-        <table class="table table-bordered">
+        <table class="table table-bordered" id="users">
             <thead>
                 <tr>
                 <th scope="col">#</th>
@@ -30,6 +28,7 @@
                 <th scope="col">Appointment Time Schedule</th>
                 <th scope="col">Status</th>
 
+                <th scope="col">Add Schedule</th>
                 <th scope="col">View</th>
                 <th scope="col">Dismiss</th>
                 
@@ -66,15 +65,17 @@
                 <?php endif ?>
 
 
-                 
                 <td>
-                    <a class="btn btn-info"  href="view_residence.php?edit=<?php echo $row ['residenceID'];?>"><i class="fa fa-eye"></i></a> 
+                    <a class="btn btn-info"  href="appointment.php?sched=<?php echo $row ['id'];?>"><i class="fa fa-clipboard-list"></i></a> 
+                </td>
+                <td>
+                    <a class="btn btn-info"  href="view_residence.php?edit=<?php echo $row ['id'];?>"><i class="fa fa-eye"></i></a> 
                 </td>
                 <td class="edit">
                     <!--ModalUpdateStart-->
-                    <a class="btn btn-success" href="residence_edit.php?edit=<?php echo $row['residenceID'];?>"><i class="fa fa-edit"></i></a>
+                    <a class="btn btn-success" href="residence_edit.php?edit=<?php echo $row['id'];?>"><i class="fa fa-edit"></i></a>
                     <!-- <form action="residence_edit.php" method="POST">
-                    <input type="hidden" name="edit_id" value="<?php echo $row['residenceID']?>">
+                    <input type="hidden" name="edit_id" value="<?php echo $row['id']?>">
                     <button type="submit" name="edit_data_btn" class="btn btn-warning" ><i class="fa fa-edit"></i></button> 
                     </form>  -->
                 </td>
@@ -84,17 +85,11 @@
             </table>
        </div>
     </main>
-
- 
-  
-                
-                
-                
-                
-                
- 
-
-
-        <!-- <div class="container">
+        <!-- <div class="container">-->
 
 <?php include('../includes/script.php'); ?> 
+<script>
+ $(document).ready(function() {
+    $('#users').DataTable();
+} );
+  </script>

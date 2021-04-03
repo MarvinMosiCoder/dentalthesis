@@ -17,7 +17,12 @@
     <!-- <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="../css/style.css"> -->
     <link href="../css/dashboard.css" rel="stylesheet">
-
+    
+     <!-- DataTables -->
+    <link href="../bootstrap-4.5.3/DataTables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <!-- <link href="../bootstrap-4.5.3/DataTables/css/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
+    <link href="../bootstrap-4.5.3/DataTables/css/Buttons/css/buttons.dataTables.min.css" rel="stylesheet">
+    
     <!-- Icons -->
     <link href="../fontawesome/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
