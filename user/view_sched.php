@@ -139,7 +139,7 @@
                     $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
                     ?>
 <script type="text/javascript">
-alert("Update Successfull.");
+alert("Cancel Successfull.");
 window.location = "view_sched.php";
 </script>
 <?php
