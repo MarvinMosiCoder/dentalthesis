@@ -10,9 +10,9 @@
 
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
     <div class="container">
-        <div class="card">
+        <div class="card" style="overflow-x: auto;">
             <h2>Registered Client</h2>
-            <table class="table table-bordered" id="users">
+            <table class="table table-bordered" id="users" width="100%" cellspacing="1">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -26,8 +26,8 @@
                         <th scope="col">TreatMent</th>
                         <th scope="col">Appointment Date Schedule</th>
                         <th scope="col">Appointment Time Schedule</th>
-                        <th scope="col">Status</th>
-
+                        <th scope="col">User Status</th>
+                        <th scope="col">Appointment Status</th>
                         <th scope="col">Add Schedule</th>
                         <th scope="col">View</th>
                         <th scope="col">Dismiss</th>
@@ -38,10 +38,10 @@
                 <tbody>
                     <?php   
             $query = "SELECT user.id, CONCAT(user.fname,'&nbsp',  user.mname,'&nbsp' , user.lname) AS userName, user.gender, user.email, user.address,
-            user.contact, user.date_of_birth, user.status, appointment.treatment_type, appointment.date_of_appointment, appointment.time_of_appointment 
+            user.contact, user.date_of_birth, user.status, appointment.treatment_type, appointment.date_of_appointment, appointment.time_of_appointment, appointment.appointment_status 
              FROM user 
              LEFT JOIN appointment ON user.id = appointment.client_id
-             WHERE appointment.appointment_status = ''";
+             WHERE user.status = 1";
 
             $query_run = mysqli_query($conn, $query);
 
@@ -59,12 +59,19 @@
                         <td><?php echo $row['date_of_appointment']; ?></td>
                         <td><?php echo $row['time_of_appointment']; ?></td>
                         <td style="display: none;"><?php echo $row['status']; ?></td>
+                        <td style="display: none;"><?php echo $row['appointment_status']; ?></td>
                         <?php if ($row['status'] == 0): ?>
-                        <td style="background-color: #00FF7F;">Dissmiss</td>
+                        <td style="background-color: #f44336;">Dissmiss</td>
                         <?php elseif ($row['status'] == 1): ?>
-                        <td style="background-color: #f44336; color: #000;">Pending</td>
+                        <td style="background-color: #00FF7F; color: #000;">Active</td>
                         <?php endif ?>
-
+                        <?php if ($row['appointment_status'] == 0): ?>
+                        <td style="background-color: #00FF7F;">For Schedule</td>
+                        <?php elseif ($row['appointment_status'] == 1): ?>
+                        <td style="background-color: #f44336; color: #000;">Cancel Appointment</td>
+                        <?php elseif ($row['appointment_status'] == ''): ?>
+                        <td style="background-color: #f44336; color: #000;">No Schedule</td>
+                        <?php endif ?>
 
                         <td>
                             <a class="btn btn-info" href="appointment.php?sched=<?php echo $row ['id'];?>"><i
@@ -74,10 +81,35 @@
                             <a class="btn btn-info" href="view_residence.php?edit=<?php echo $row ['id'];?>"><i
                                     class="fa fa-eye"></i></a>
                         </td>
-                        <td class="edit">
-                            <!--ModalUpdateStart-->
-                            <a class="btn btn-success" href="residence_edit.php?edit=<?php echo $row['id'];?>"><i
+                        <td>
+                            <!-- send sms -->
+                            <a class="btn btn-success" href="dismiss_appointment.php?edit=<?php echo $row['id'];?>"><i
                                     class="fa fa-edit"></i></a>
+                            <!--send sms Modal Blotter-->
+
+                            <div class="modal fade" id="dismissModal" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="close"><span aria-hidden="true">&times;</span></button>
+                                            <h3 class="text-center">New Settlement Report</h3>
+                                        </div>
+                                        <div class="modal-body">
+                                            <?php include('dismiss_appointment.php'); ?>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Modal-end-->
+                            <!--Modal-end-->
+                        </td>
+                        <td>
+
+                            <!-- <a class="btn btn-success" href="dismiss_appointment.php?edit=<?php echo $row['id'];?>"><i
+                                    class="fa fa-edit"></i></a> -->
                             <!-- <form action="residence_edit.php" method="POST">
                     <input type="hidden" name="edit_id" value="<?php echo $row['id']?>">
                     <button type="submit" name="edit_data_btn" class="btn btn-warning" ><i class="fa fa-edit"></i></button> 
@@ -94,6 +126,16 @@
 <?php include('../includes/script.php'); ?>
 <script>
 $(document).ready(function() {
-    $('#users').DataTable();
+    var table = $('#users').DataTable({
+
+        /* "RowCallback":function(nrow, adata, iDisplayIndex,iDisplayIndexFull ){
+           if (aData[10] == "NO") {
+            $('td' , nRow).css('background-color','Red');
+           }
+           else if (aData[10] == "YES") {
+             $('td' , nRow).css('background-color','Green');
+           }
+         }*/
+    });
 });
 </script>

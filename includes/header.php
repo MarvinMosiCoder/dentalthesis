@@ -12,39 +12,39 @@
     <!-- Bootstrap CSS -->
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
      -->
-     <link rel="stylesheet" href="../bootstrap-4.5.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap-4.5.3/dist/css/bootstrap.min.css">
     <!-- Custom CSS -->
     <!-- <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="../css/style.css"> -->
     <link href="../css/dashboard.css" rel="stylesheet">
-    
-     <!-- DataTables -->
+
+    <!-- DataTables -->
     <link href="../bootstrap-4.5.3/DataTables/css/jquery.dataTables.min.css" rel="stylesheet">
-    <!-- <link href="../bootstrap-4.5.3/DataTables/css/dataTables.bootstrap4.min.css" rel="stylesheet"> -->
+    <link href="../bootstrap-4.5.3/DataTables/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="../bootstrap-4.5.3/DataTables/css/Buttons/css/buttons.dataTables.min.css" rel="stylesheet">
-    
+
     <!-- Icons -->
     <link href="../fontawesome/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 
     <title>RTN Dental Clinic</title>
     <style>
-      .bd-placeholder-img {
+    .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
-      }
+    }
 
-      @media (min-width: 768px) {
+    @media (min-width: 768px) {
         .bd-placeholder-img-lg {
-          font-size: 3.5rem;
+            font-size: 3.5rem;
         }
-      }
+    }
     </style>
-    
+
 </head>
 
 <body>

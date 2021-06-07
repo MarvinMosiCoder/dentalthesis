@@ -30,6 +30,13 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link" href="view_history.php">
+                            <span data-feather="eye"></span>
+                            View Appointment History
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link" href="#">
                             <span data-feather="bar-chart-2"></span>
                             Reports
