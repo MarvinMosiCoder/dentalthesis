@@ -12,7 +12,7 @@ if(isset($_POST['register'])){
   $checkResult = array();
   //$checkFinalResult = array();
   //check time in appointment
-  $checkTime = mysqli_query($conn, "SELECT time_of_appointment as ta FROM appointment where appointment_status = ''");
+  $checkTime = mysqli_query($conn, "SELECT time_of_appointment as ta FROM appointment where appointment_status = 0");
   while($checkrows = mysqli_fetch_assoc( $checkTime ) ) {
     array_push( $checkResult, $checkrows );
   }
