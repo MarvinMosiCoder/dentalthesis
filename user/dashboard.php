@@ -15,7 +15,7 @@
         user.contact, user.date_of_birth, appointment.treatment_type, appointment.date_of_appointment, appointment.time_of_appointment 
          FROM user 
          LEFT JOIN appointment ON user.id = appointment.client_id 
-         WHERE client_id = $login_user_id AND appointment.appointment_status = '' 
+         WHERE client_id = $login_user_id AND appointment.appointment_status = 0 
          ";
 
         $query_run = mysqli_query($conn, $query);
