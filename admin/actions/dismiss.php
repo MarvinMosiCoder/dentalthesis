@@ -5,7 +5,10 @@
     $client_id = $_POST['client_id'];
     $sql = "UPDATE user SET status = 0 
     WHERE id = '$client_id'";
+    $sql2 = "UPDATE appointment SET appointment_status = 1 
+    WHERE client_id = '$client_id'";
     $result = mysqli_query($conn,$sql);
+    $result2 = mysqli_query($conn,$sql2);
    if ($result) {
           $client_id = $_POST['client_id'];
           $name_client = $_POST['name_client'];

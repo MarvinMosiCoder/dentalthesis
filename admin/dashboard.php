@@ -40,13 +40,13 @@
                     </div>
                 </div>
 
-                <a href="view_studs.php">
+                <!-- <a href="view_studs.php">
                     <div class="modal-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="icon-chevron-right"></i></span>
                         <div class="clearfix"></div>
                     </div>
-                </a>
+                </a> -->
             </div>
 
 
@@ -75,15 +75,18 @@
                     </div>
                 </div>
 
-                <a href="view_studs.php">
+                <!-- <a href="view_studs.php">
                     <div class="modal-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="icon-chevron-right"></i></span>
                         <div class="clearfix"></div>
                     </div>
-                </a>
+                </a> -->
             </div>
-
+            <?php 
+     $appoint_history = mysqli_query($conn,"select * from user where status=0")or die(mysqli_error());
+     $appointment_history = mysqli_num_rows($appoint_history);
+     ?>
             <div class="col-lg-4">
                 <div class="card">
                     <div class="card-heading">
@@ -94,7 +97,7 @@
                                 </div>
                                 <div class="span8 text-right">
                                     <div class="huge">
-                                        <h3><strong></strong></h3>
+                                        <h3><strong><?php echo $appointment_history; ?></strong></h3>
                                     </div>
                                     <div>
                                         <h3>All Dissmiss Case</h3>
@@ -105,13 +108,13 @@
                     </div>
                 </div>
 
-                <a href="view_studs.php">
+                <!-- <a href="view_studs.php">
                     <div class="modal-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="icon-chevron-right"></i></span>
                         <div class="clearfix"></div>
                     </div>
-                </a>
+                </a> -->
             </div>
 
 

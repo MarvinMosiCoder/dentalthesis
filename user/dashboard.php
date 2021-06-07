@@ -56,13 +56,13 @@
                     </div>
                 </div>
 
-                <a href="view_studs.php">
+                <!-- <a href="view_studs.php">
                     <div class="modal-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="icon-chevron-right"></i></span>
                         <div class="clearfix"></div>
                     </div>
-                </a>
+                </a> -->
             </div>
 
 
@@ -85,13 +85,13 @@
                     </div>
                 </div>
 
-                <a href="view_studs.php">
+                <!-- <a href="view_studs.php">
                     <div class="modal-footer">
                         <span class="pull-left">View Details</span>
                         <span class="pull-right"><i class="icon-chevron-right"></i></span>
                         <div class="clearfix"></div>
                     </div>
-                </a>
+                </a> -->
             </div>
             <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
 
