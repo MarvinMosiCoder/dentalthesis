@@ -2,8 +2,8 @@
 -- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 03, 2021 at 11:22 AM
+-- Host: localhost
+-- Generation Time: Jun 07, 2021 at 07:44 AM
 -- Server version: 10.3.15-MariaDB
 -- PHP Version: 7.1.30
 
@@ -56,23 +56,17 @@ CREATE TABLE `appointment` (
   `date_of_appointment` date NOT NULL,
   `time_of_appointment` time NOT NULL,
   `users_status` int(11) NOT NULL,
-  `appointment_status` varchar(255) NOT NULL,
-  `date_of_registered` datetime NOT NULL DEFAULT current_timestamp()
+  `appointment_status` varchar(255) DEFAULT NULL,
+  `date_of_registered` datetime NOT NULL DEFAULT current_timestamp(),
+  `dentist` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `appointment`
 --
 
-INSERT INTO `appointment` (`id`, `client_id`, `client_name`, `treatment_type`, `date_of_appointment`, `time_of_appointment`, `users_status`, `appointment_status`, `date_of_registered`) VALUES
-(2, 2, '', 'sakit as ipin na matindi', '2020-12-09', '22:38:00', 0, '', '2020-12-06 22:36:29'),
-(3, 3, '', 'masyadong maganda', '2020-12-10', '14:51:00', 0, '', '2020-12-07 14:49:25'),
-(4, 6, '', 'may covid', '2021-04-15', '12:31:00', 0, '', '2021-04-01 22:31:59'),
-(5, 1, '', 'may covid', '2021-04-09', '12:11:00', 0, '', '2021-04-03 13:07:00'),
-(6, 1, 'Marvin Q Mosico', 'lasing', '2021-04-03', '00:12:00', 0, '', '2021-04-03 16:04:55'),
-(7, 0, '', 'inlove', '2021-04-10', '00:12:00', 0, '', '2021-04-03 16:17:11'),
-(8, 1, 'Marvin Q Mosico', 'inlove sayo', '2021-04-03', '12:31:00', 1, '', '2021-04-03 16:18:46'),
-(9, 2, 'Jowe  Matigas Asas', 'tigas', '2021-04-14', '02:12:00', 0, '', '2021-04-03 16:50:36');
+INSERT INTO `appointment` (`id`, `client_id`, `client_name`, `treatment_type`, `date_of_appointment`, `time_of_appointment`, `users_status`, `appointment_status`, `date_of_registered`, `dentist`) VALUES
+(61, 1, 'Marvin Q Mosico', 'matalino', '2021-06-10', '12:31:00', 0, '0', '2021-06-07 12:44:10', 'Dentist Name 2');
 
 -- --------------------------------------------------------
 
@@ -86,8 +80,38 @@ CREATE TABLE `appointment_history` (
   `name_client` varchar(255) NOT NULL,
   `type_of_treatment` varchar(255) NOT NULL,
   `name_of_dentist` varchar(255) NOT NULL,
-  `date_and_time` timestamp NOT NULL DEFAULT current_timestamp()
+  `date_of` date NOT NULL,
+  `time_of` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `appointment_history`
+--
+
+INSERT INTO `appointment_history` (`id`, `client_id`, `name_client`, `type_of_treatment`, `name_of_dentist`, `date_of`, `time_of`) VALUES
+(6, 1, 'Marvin Q Mosico', 'lasing', 'Doctor Name 1', '2021-06-07', '12:31:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `report_tbl`
+--
+
+CREATE TABLE `report_tbl` (
+  `id` int(11) NOT NULL,
+  `name_of_patient` varchar(255) DEFAULT NULL,
+  `treatment_type` varchar(255) DEFAULT NULL,
+  `date_of_treatment` date DEFAULT NULL,
+  `uploaded_by` int(11) DEFAULT NULL,
+  `date_of_upload` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `report_tbl`
+--
+
+INSERT INTO `report_tbl` (`id`, `name_of_patient`, `treatment_type`, `date_of_treatment`, `uploaded_by`, `date_of_upload`) VALUES
+(17, 'dale', 'manginginum', '2021-01-01', 1, '2021-01-01');
 
 -- --------------------------------------------------------
 
@@ -121,7 +145,8 @@ INSERT INTO `user` (`id`, `fname`, `mname`, `lname`, `gender`, `date_of_birth`, 
 (3, 'Marialyn', 'Rico', 'Real', 'female', '1970-01-01', 'maria@gmail.com', 'maria', '8ad92b1af7e1d426219a319d4f9853ff', 'Malabon City', '08927819291', '1', '2020-12-07 06:48:06'),
 (4, 'Cyrill', 'Jane', 'Novera', '', '0000-00-00', 'cy@gmail.com', 'cy', 'cfe81fe0db6affeb2ef066fd2b54540e', '', '09728346712', '1', '2020-12-07 06:52:32'),
 (5, 'earl', 'john', 'navarette', '', '0000-00-00', 'earl@gmail.com', 'earl', '49518a801af38929c82ea09dc3c5f830', '', '09761278172', '1', '2020-12-07 06:54:47'),
-(6, 'test', 'test', 'tes', '', '0000-00-00', 'test@gmail.com', 'test', '827ccb0eea8a706c4c34a16891f84e7b', '', '09273181281', '1', '2021-04-01 14:30:52');
+(6, 'test', 'test', 'tes', '', '0000-00-00', 'test@gmail.com', 'test', '827ccb0eea8a706c4c34a16891f84e7b', '', '09273181281', '1', '2021-04-01 14:30:52'),
+(7, 'Marialyn', 'Rico ', 'Real', '', '0000-00-00', 'marialyn@gmail.com', 'Ria', '202cb962ac59075b964b07152d234b70', '', '09273812839', '1', '2021-06-03 06:13:43');
 
 --
 -- Indexes for dumped tables
@@ -146,6 +171,12 @@ ALTER TABLE `appointment_history`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `report_tbl`
+--
+ALTER TABLE `report_tbl`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -165,19 +196,25 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `appointment_history`
 --
 ALTER TABLE `appointment_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `report_tbl`
+--
+ALTER TABLE `report_tbl`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
