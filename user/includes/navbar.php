@@ -29,18 +29,16 @@
         // print_r($notifications_data);
         // exit();     
         ?>
-
-
-    <li class="nav-item text-nowrap">
-        <h4 class="text-white text-center">Welcome! <strong style="color: #00FF7F"> <?php echo $login_user;?></strong>
-        </h4>
-    </li>
     <?php 
     $Date = date("Y-m-d");
     if($notifications_data[0]['check_date'] == date('Y-m-d', strtotime($Date. ' + 3 days'))){?>
     <li class="nav-item text-nowrap">
-        <h5 class="text-white text-center"><strong style="color: #F94552">Your Appointment Schedule date is!!!
-                Near</strong></h5>
+        <h5 class="text-white text-center"><strong style="color: #F94552">Your Appointment Schedule date is
+                near!!!</strong></h5>
+    </li>
+    <?php }else if($notifications_data[0]['check_date'] == date('Y-m-d', strtotime($Date. ' + 1 days'))){?>
+    <li class="nav-item text-nowrap">
+        <h4 class="text-white text-center"><strong style="color: #00FF7F">Your Appointment is Tomorrow!!!</strong></h4>
     </li>
     <?php }else if($notifications_data[0]['check_date'] == date('Y-m-d', strtotime($Date))){?>
     <li class="nav-item text-nowrap">
@@ -48,5 +46,11 @@
     </li>
     <?php }else{ ?>
     <?php } ?>
+
+    <li class="nav-item text-nowrap">
+        <h4 class="text-white text-center">Welcome! <strong style="color: #00FF7F"> <?php echo $login_user;?></strong>
+        </h4>
+    </li>
+
 
 </nav>
